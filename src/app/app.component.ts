@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
 //import { Chart } from 'angular-highcharts';
 import Highcharts from 'highcharts/highmaps';
-import worldMap from '@highcharts/map-collection/custom/world.geo.json';
+import { ExportingAccessibilityOptions } from 'highcharts/highmaps';
+
+import HC_exporting from 'highcharts/modules/exporting';
+HC_exporting(Highcharts);
+
+
+//import worldMap from '@highcharts/map-collection/custom/world.geo.json';
+import { worldMap } from '../assets/map/world';
+import { amharaZonalMap } from '../assets/map/amhara-zonal-map';
 
 @Component({
   selector: 'app-root',
@@ -38,11 +46,11 @@ export class AppComponent {
 
   Highcharts: typeof Highcharts = Highcharts;
   chartConstructor = "mapChart";
-  chartData = [{ code3: "ABW", z: 105 }, { code3: "AFG", z: 35530 }];
+  //chartData = [{ code3: "ABW", z: 105 }, { code3: "AFG", z: 35530 }];
 
   chartOptions: Highcharts.Options = {
     chart: {
-      map: worldMap
+      map: amharaZonalMap
     },
     title: {
       text: "Highmaps basic demo"
@@ -60,13 +68,36 @@ export class AppComponent {
     legend: {
       enabled: true
     },
+    credits:
+{
+enabled:false
+},
+exporting:{
+  csv:
+{
+annotations:
+{
+itemDelimiter:";",
+join:false
+},
+columnHeaderFormatter:null,
+dateFormat:"%Y-%m-%d %H:%M:%S",
+decimalPoint:null,
+itemDelimiter:null,
+lineDelimiter:" "
+},
+enabled:true
+},
     colorAxis: {
-      min: 0
+      min: 0,
+      minColor:"#f0a930",
+      maxColor:"#a86b02"
     },
     series: [
       {
         type: "map",
         name: "Random data",
+        color: "#BCDA55",
         states: {
           hover: {
             color: "#BADA55"
@@ -76,9 +107,21 @@ export class AppComponent {
           enabled: true,
           format: "{point.name}"
         },
-        allAreas: false,
+        allAreas: true,
         data: [
-          ["fo", 0],
+          ["ET-AM-BD", 10],
+          ["ET-AM-EG", 21],
+          ["ET-AM-WG", 32],
+          ["ET-AM-AW", 43],
+          ["ET-AM-OR", 54],
+          ["ET-AM-NS", 65],
+          ["ET-AM-NW", 76],
+          ["ET-AM-NG", 87],
+          ["ET-AM-SW", 98],
+          ["ET-AM-SG", 109],
+          ["ET-AM-WK", 1110],
+          ["ET-AM-RY", 1211],
+          ["ET-AM-WH", 1313],
           ["um", 1],
           ["us", 2],
           ["jp", 3],
