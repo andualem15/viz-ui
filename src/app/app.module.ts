@@ -11,6 +11,9 @@ import { VizMaterialModule } from './theme/viz-material/viz-material.module';
 import { HeaderComponent } from './theme/header/header.component';
 import { FooterComponent } from './theme/footer/footer.component';
 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -24,10 +27,12 @@ import { FooterComponent } from './theme/footer/footer.component';
     ChartModule,
     HighchartsChartModule,
     FormsModule,
-    VizMaterialModule
+    VizMaterialModule,
+    HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}
   ],
   bootstrap: [AppComponent]
 })
