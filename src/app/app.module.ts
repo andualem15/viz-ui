@@ -13,13 +13,19 @@ import { FooterComponent } from './theme/footer/footer.component';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { VaccineComponent } from './components/categories/vaccine/vaccine.component';
+import { HomeComponent } from './components/home/home.component';
+import { PentavalentComponent } from './components/viz/pentavalent/pentavalent.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    VaccineComponent,
+    HomeComponent,
+    PentavalentComponent
   ],
   imports: [
     BrowserModule,
