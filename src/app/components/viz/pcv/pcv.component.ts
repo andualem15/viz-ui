@@ -15,7 +15,7 @@ export class PcvComponent {
 
   chartOptions: Highcharts.Options = {
     title: {
-      text: "PCV Coverage"
+      text: "Pneumococcal Conjugate Vaccination (PCV) Coverage"
     },
     xAxis: {
       categories: [
