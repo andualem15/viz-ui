@@ -16,6 +16,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { VaccineComponent } from './components/categories/vaccine/vaccine.component';
 import { HomeComponent } from './components/home/home.component';
 import { PentavalentComponent } from './components/viz/pentavalent/pentavalent.component';
+import { PcvComponent } from './components/viz/pcv/pcv.component';
+
+//import { ChartModule } from 'angular-highcharts';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { PentavalentComponent } from './components/viz/pentavalent/pentavalent.c
     FooterComponent,
     VaccineComponent,
     HomeComponent,
-    PentavalentComponent
+    PentavalentComponent,
+    PcvComponent
   ],
   imports: [
     BrowserModule,
