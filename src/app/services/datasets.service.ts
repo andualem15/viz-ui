@@ -3,12 +3,13 @@ import { Observable } from 'rxjs';
 import { Datasets } from './types';
 import { pentavalent } from './types';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatasetsService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
   
